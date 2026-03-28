@@ -192,7 +192,9 @@ nav.scrolled {
 
 
 .banner-content { 
-    position: relative; z-index: 2; flex: 1; 
+    position: relative; 
+    z-index: 2; 
+    flex: 1; 
 }
 
 .banner-name {
@@ -235,12 +237,19 @@ nav.scrolled {
     .banner { 
         flex-direction: column-reverse; 
         padding: 44px 24px; 
-        gap: 28px; 
+        gap: 28px;
         align-items: flex-start; 
     }
     .banner-photo { 
-        width: 140px;
-        height: 175px; }
+        width: 250px;
+        height: 195px; 
+        align-items: end;
+        margin-left: 300px;
+    }
+    .banner-photo img{
+        width: 220px;
+        height: 285px; 
+    }
 }
 
 .container {
@@ -248,6 +257,7 @@ nav.scrolled {
     margin: 0 auto;
     padding: 0 40px;
 }
+
 @media (max-width: 480px) { 
     .container { 
         padding: 0 18px; 
