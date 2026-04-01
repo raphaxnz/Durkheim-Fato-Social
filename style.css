@@ -433,6 +433,14 @@ p {
     margin: 0; 
 }
 
+.obras-list span{
+    color: var(--crimson-light);
+}
+
+.obra-title span{
+    color: var(--crimson-light);
+}
+
 .obras-list li {
     display: flex;
     gap: 14px;
