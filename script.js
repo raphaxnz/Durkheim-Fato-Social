@@ -3,7 +3,7 @@ const navMenu = document.getElementById('navMenu');
 const navLinks  = document.getElementById('navLinks');
 
 window.addEventListener('scroll', () => {
-    navbar.classList.menu('scrolled', window.scrollY > 40);
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
     updateActiveLink();
 });
 
