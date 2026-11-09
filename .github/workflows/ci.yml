@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate static site
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+
+      - name: Validate HTML
+        run: npx --yes htmlhint@1.9.2 index.html
+
+      - name: Validate JavaScript syntax
+        run: node --check script.js
+
+      - name: Validate CSS
+        run: |
+          printf '%s\n' '{"rules":{"block-no-empty":true,"color-no-invalid-hex":true,"declaration-block-no-duplicate-properties":true,"property-no-unknown":true}}' > "$RUNNER_TEMP/stylelint.json"
+          npx --yes stylelint@18.0.0 style.css --config "$RUNNER_TEMP/stylelint.json"
